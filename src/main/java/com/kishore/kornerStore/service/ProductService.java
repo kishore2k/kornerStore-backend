@@ -25,4 +25,13 @@ public class ProductService {
         productRepo.save(product);
     }
 
+    public Product updateProduct(int id, Product product){
+        if(productRepo.findById(id).orElse(null)!=null){
+            productRepo.save(product);
+            return product;
+        }else{
+            return null;
+        }
+    }
+
 }
