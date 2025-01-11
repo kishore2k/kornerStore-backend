@@ -34,4 +34,12 @@ public class ProductService {
         }
     }
 
+    public boolean deleteProduct(int id){
+        if(productRepo.findById(id).orElse(null)!=null){
+            productRepo.deleteById(id);
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
