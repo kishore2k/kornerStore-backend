@@ -73,4 +73,16 @@ public class ProductController {
             return new ResponseEntity<>("Failed to Delete.",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/products/search")
+    public ResponseEntity<List<Product>> searchProducts(@RequestParam String keyword){
+        try{
+            List<Product> products = productService.searchProducts(keyword);
+            return new ResponseEntity<>(products,HttpStatus.OK);
+        }catch(Exception e){
+            System.out.println("Error: "+e);
+            return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
