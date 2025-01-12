@@ -42,4 +42,8 @@ public class ProductService {
             return false;
         }
     }
+
+    public List<Product> searchProducts(String keyword){
+        return productRepo.searchProducts(keyword);
+    }
 }
